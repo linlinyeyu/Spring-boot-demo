@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.edi</groupId>
+	<artifactId>edi</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>war</packaging>
+	<name>edi</name>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>1.2.7.RELEASE</version>
+		<relativePath></relativePath>
+	</parent>
+
+	<properties>
+		<springside.version>5.0.0-SNAPSHOT</springside.version>
+		<commons-lang3.version>3.4</commons-lang3.version>
+		<commons-codec.version>1.10</commons-codec.version>
+		<assertj.version>2.2.0</assertj.version>
+		<h2.version>1.3.176</h2.version>
+
+		<java.version>1.7</java.version>
+		<start-class>cn.oms.BootApiApplication</start-class>
+		<!-- 依赖版本 -->
+		<mybatis.version>3.3.1</mybatis.version>
+		<mybatis.spring.version>1.2.4</mybatis.spring.version>
+		<mapper.version>3.3.6</mapper.version>
+        <pagehelper.version>4.1.1</pagehelper.version>
+	</properties>
+
+	<dependencies>
+		<!-- spring boot -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-web</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.38</version>
+		</dependency>
+
+		<!-- utils -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>${commons-lang3.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.7</version>
+		</dependency>
+		<!-- test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<!--Mybatis -->
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis</artifactId>
+            <version>${mybatis.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mybatis</groupId>
+			<artifactId>mybatis-spring</artifactId>
+            <version>${mybatis.spring.version}</version>
+		</dependency>
+		<!-- Mybatis Generator -->
+		<dependency>
+			<groupId>org.mybatis.generator</groupId>
+			<artifactId>mybatis-generator-core</artifactId>
+			<version>1.3.2</version>
+			<scope>compile</scope>
+			<optional>true</optional>
+		</dependency>
+		<!--分页插件 -->
+		<dependency>
+			<groupId>com.github.pagehelper</groupId>
+			<artifactId>pagehelper</artifactId>
+            <version>${pagehelper.version}</version>
+		</dependency>
+		<!--通用Mapper -->
+		<dependency>
+			<groupId>tk.mybatis</groupId>
+			<artifactId>mapper</artifactId>
+            <version>${mapper.version}</version>
+            <exclusions>
+            	<exclusion>
+            		<artifactId>persistence-api</artifactId>
+            		<groupId>javax.persistence</groupId>
+            	</exclusion>
+            </exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.edi</groupId>
+			<artifactId>edi-api</artifactId>
+			<version>2.0.0</version>
+		</dependency>
+	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<!--<plugin> -->
+			<!--<groupId>org.flywaydb</groupId> -->
+			<!--<artifactId>flyway-maven-plugin</artifactId> -->
+			<!--<version>3.1</version> -->
+			<!--<configuration> -->
+			<!--<driver>com.mysql.jdbc.Driver</driver> -->
+			<!--<url>jdbc:mysql://127.0.0.1:3307/demo</url> -->
+			<!--<user>root</user> -->
+			<!--<password></password> -->
+			<!--</configuration> -->
+			<!--</plugin> -->
+		</plugins>
+		<finalName>edi</finalName>
+	</build>
+	<profiles>
+		<profile>
+			<id>dev</id>
+			<!-- 默认激活开发配制，使用application.properties来替换设置过虑的资源文件中的${key} -->
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+		    <properties>
+		        <spring.datasource.url>jdbc:mysql://172.16.0.39:3306/weishop</spring.datasource.url>
+		        <spring.datasource.username>root</spring.datasource.username>
+		        <spring.datasource.password></spring.datasource.password>
+		        <logging.file>d:/logs/wms-edi.log</logging.file>
+		        <spring.jpa.showSql>true</spring.jpa.showSql>
+		        <logging.level.org.springframework.web>DEBUG</logging.level.org.springframework.web>
+		    </properties>
+		</profile>
+	</profiles>
+</project>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.edi.mapper.WsMerchantMapper">
+	<resultMap id="BaseResultMap" type="com.edi.domain.WsMerchant">
+		<id column="id" jdbcType="TINYINT" property="id" />
+		<result column="merchant_id" jdbcType="TINYINT" property="merchantId" />
+		<result column="merchant_name" jdbcType="VARCHAR" property="merchantName" />
+		<result column="platform_id" jdbcType="TINYINT" property="platformId" />
+		<result column="area_id" jdbcType="INTEGER" property="areaId" />
+		<result column="merchant_type" jdbcType="VARCHAR" property="merchantType" />
+		<result column="merchant_tel" jdbcType="VARCHAR" property="merchantTel" />
+		<result column="enabled" jdbcType="TINYINT" property="enabled" />
+		<result column="created_time" jdbcType="TIMESTAMP" property="createdTime" />
+		<result column="created_user" jdbcType="VARCHAR" property="createdUser" />
+		<result column="last_updated_user" jdbcType="VARCHAR" property="lastUpdatedUser" />
+		<result column="last_updated_time" jdbcType="TIMESTAMP" property="lastUpdatedTime" />
+		<result column="app_key" jdbcType="VARCHAR" property="appKey" />
+		<result column="secret" jdbcType="VARCHAR" property="secret" />
+		<result column="session_key" jdbcType="VARCHAR" property="sessionKey" />
+	</resultMap>
+</mapper>

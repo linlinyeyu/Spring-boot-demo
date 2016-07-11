@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration>
+	<classPathEntry
+		location="F:\MAVEN_REPO\mysql\mysql-connector-java\5.1.34\mysql-connector-java-5.1.34.jar" />
+	<context id="context1" targetRuntime="MyBatis3"
+		defaultModelType="flat">
+		<plugin type="com.xinyunlian.core.mybatis.generator.MapperPlugin">
+			<property name="mappers" value="com.xinyunlian.core.mybatis.mapper.Mapper" />
+		</plugin>
+		<jdbcConnection driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://172.16.0.39:3306/oms?useUnicode=true&amp;characterEncoding=UTF-8"
+			userId="root" password="" />
+		<javaModelGenerator targetPackage="com.wms.oms.entity"
+			targetProject="F:\XiaoPaiSpace2\1.0.0\wms-api\src\main\java" />
+ 		<sqlMapGenerator targetPackage="."
+			targetProject="F:\XiaoPaiSpace2\1.0.0\wms-oms\src\main\resources\mapper" />
+		<javaClientGenerator targetPackage="com.oms.persistence"
+			targetProject="F:\XiaoPaiSpace2\1.0.0\wms-oms\src\main\java"
+			type="XMLMAPPER" />   
+			
+		<!-- 
+	 	<table schema="huala" tableName="wx_qruser" domainObjectName="WxQruser" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+		
+	 	 -->
+ 		<table schema="oms" tableName="oms_order" domainObjectName="OmsOrder" enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false"/>
+		     
+	</context>
+</generatorConfiguration>
